@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Enhancement</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<style>
+body {
+    font-family: 'Verdana', sans-serif;
+    background: linear-gradient(180deg, #fdfdfd 0%, #f0f0f0 100%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.classify-box {
+    max-width: 600px;
+    margin: 15% auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.header1 {
+    color: #007BFF;
+    font-size: 32px;
+    font-family: 'Arial Black', sans-serif;
+}
+.upload-form {
+    text-align: center;
+    margin-top: 20px;
+}
+.upload-form input[type="file"],
+.upload-form input[type="submit"],
+.download-btn {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #007BFF;
+    font-weight: bold;
+    font-size: 16px;
+}
+.upload-form input[type="submit"],
+.download-btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.upload-form input[type="submit"],
+.download-btn:hover {
+    background-color: #0056b3;
+}
+.result img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.result p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+#download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+#download-btn:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="classify-box">
+        <h1 class="header1">High-Resolution Enhancement</h1>
+        <form class="upload-form" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" color="#0056b3">
+            <br><br>
+            <input type="submit" value="Enhance Image" color="#0056b3">
+        </form>
+        <div class="result">
+            {% if uploaded_file %}
+            <img src="{{ url_for('uploaded_file', filename=uploaded_file) }}" width="300" height="300" alt="Uploaded Image">
+            <p class="text-center">Here's the Enhanced Image!</p>
+
+            <a href="{{ url_for('uploaded_file', filename=uploaded_file) }}" download="enhanced_image.jpg">
+                <button id="download-btn">Download Result</button>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>

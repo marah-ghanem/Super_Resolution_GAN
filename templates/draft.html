@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .error-box {
+            background-color: #ff6666;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sentence {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        a {
+            color: #002750; /* Change the color to your preference */
+            text-decoration: none; /* Remove underlines */
+            font-weight: bold;
+        }
+        /* Hover effect when the mouse is over the link */
+        a:hover {
+            color: #0056b3; /* Change the hover color to your psreference */
+        }
+    </style>
+</head>
+<body>
+    <div class="error-box">
+        <div class="sentence">No Selected File!</div>
+        <a href="{{url_for('index')}}">Back to Home</a>
+    </div>
+</body>
+</html>
